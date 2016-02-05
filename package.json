@@ -1,0 +1,17 @@
+{
+  "name": "postcss-fallback-gradient",
+  "version": "1.0.0",
+  "description": "Fallback for your linear-gradient in IE",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pushkarskaya Dariya",
+  "github": "6thSence",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^5.0.0",
+    "eslint-plugin-react": "^3.16.1"
+  }
+}
