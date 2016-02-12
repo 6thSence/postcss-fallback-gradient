@@ -30,6 +30,18 @@ const hexToRgb = (hex) => {
     } : null;
 };
 
+const rbgToHex = (rgbColor) => {
+    var r = (+rgbColor.r).toString(16);
+    var g = (+rgbColor.g).toString(16);
+    var b = (+rgbColor.b).toString(16);
+
+    if (r.length == 1) r = '0' + r;
+    if (g.length == 1) g = '0' + g;
+    if (b.length == 1) b = '0' + b;
+
+    return '#' + (r + g + b);
+};
+
 const srtToArray = (str) => {
     var array = [];
     var pos = -1;
@@ -256,3 +268,4 @@ module.exports.checkOfPercent = checkOfPercent;
 module.exports.sortByPercent = sortByPercent;
 module.exports.getTwoMaxColors = getTwoMaxColors;
 module.exports.getMiddleColor = getMiddleColor;
+module.exports.rbgToHex = rbgToHex;

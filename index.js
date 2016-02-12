@@ -22,23 +22,25 @@ module.exports = postcss.plugin('myplug', function myplug(options) {
                         console.log('\n');
                         const twoMainColor = utils.getTwoMaxColors(colorModel); // нахождение границ максимального отрывка
                         const middleColor = utils.getMiddleColor(colorModel); // нахождение среднего цвета между двумя точками
-                        console.log(middleColor);
+                        const colorRgba = 'rgba(' + middleColor.r + ', ' + middleColor.g + ', ' + middleColor.b + ', ' + middleColor.a + ')';
+                        const colorHex = utils.rbgToHex(middleColor); // получаем hex цвет из rgba
+                        console.log(colorHex);
+                        console.log(colorRgba);
                         console.log('\n');
                     }
                 }
 
                 if (firstRull) {
                     firstRull = false;
-                    // console.log(colorModel);
+                    rule.insertBefore(decl, {
+                        prop: 'background',
+                        value: colorHex
+                    });
 
-                    // TODO:
-                    // 
-                    // const middleColor = createMiddleColor();
-                    // 
-                    // return rule.insertBefore(decl, {
-                    //     prop: 'background'
-                    //     value: middleColor
-                    // });
+                    return rule.insertBefore(decl, {
+                        prop: 'background',
+                        value: colorRgba
+                    });
                 }
             });
         });
