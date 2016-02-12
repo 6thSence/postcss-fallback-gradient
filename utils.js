@@ -66,18 +66,16 @@ const srtToArray = (str) => {
 };
 
 const getPercent = (pos, array) => {
-    var percent = 0;
 
-    if (array[pos] && array[pos].indexOf('%') !=-1) {
+    if (array[pos] && array[pos].indexOf('%') != -1) {
 
-        percent = + array[pos].slice(0, array[pos].indexOf('%'));
+        return percent = + array[pos].slice(0, array[pos].indexOf('%'));
 
     } else if (!array[pos] && pos === array.length){
 
-        percent = 100;
+        return percent = 100;
     }
 
-    return percent;
 };
 
 const checkOfTransparent = (colorModel) => {
@@ -128,12 +126,12 @@ const checkOfPercent = (colorModel) => {
 
             min = max;
             max = item.percent;
-            coef = (max + min) / und;
+            coef = (max + min) / (und + 1);
             val = max - coef;
 
             while (und > 0) {
-                colorModel[pos - und].percent = coef;
-                val = val + coef;
+                colorModel[pos - und].percent = val;
+                val = val - coef;
                 und = und -  1;
             }
 
@@ -170,6 +168,8 @@ const createColorModel = (decl, firstRull, colorModel) => {
             color.a = 1;
             color.percent = getPercent(pos+1, array);
 
+            if (color.percent === undefined && colorModel.length === 0) color.percent = 0;
+
             colorModel.push(color);
 
         } else {
@@ -182,6 +182,9 @@ const createColorModel = (decl, firstRull, colorModel) => {
                     color.a = +array[pos+4];
                     color.percent = getPercent(pos+5, array);
 
+                    if (color.percent === undefined && colorModel.length === 0) color.percent = 0;
+
+
                     colorModel.push(color);
 
                 } else if (array[pos]==='rgb') {  // Если цвет rgb 
@@ -191,6 +194,9 @@ const createColorModel = (decl, firstRull, colorModel) => {
                     color.b = +array[pos+3];
                     color.a = 1;
                     color.percent = getPercent(pos+4, array);
+
+                    if (color.percent === undefined && colorModel.length === 0) color.percent = 0;
+
 
                     colorModel.push(color);
 
@@ -214,6 +220,9 @@ const createColorModel = (decl, firstRull, colorModel) => {
                             color.b = +rgb.b; 
                             color.a = 1;
                             color.percent = getPercent(pos+1, array);
+
+                            if (color.percent === undefined && colorModel.length === 0) color.percent = 0;
+
                             
                             colorModel.push(color);
                         };
