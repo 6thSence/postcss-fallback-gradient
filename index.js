@@ -20,6 +20,10 @@ module.exports = postcss.plugin('myplug', function myplug(options) {
                         colorModel = utils.sortByPercent(colorModel); // повторная сортировка с новыми процентами
                         console.log(colorModel);
                         console.log('\n');
+                        const twoMainColor = utils.getTwoMaxColors(colorModel); // нахождение границ максимального отрывка
+                        const middleColor = utils.getMiddleColor(colorModel); // нахождение среднего цвета между двумя точками
+                        console.log(middleColor);
+                        console.log('\n');
                     }
                 }
 

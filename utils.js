@@ -214,7 +214,45 @@ const createColorModel = (decl, firstRull, colorModel) => {
     return colorModel;
 };
 
+const getTwoMaxColors = (colorModel) => {
+
+    var max = 0;
+    var maxPos = 0;
+    var pos = 0;
+    var len = colorModel.length;
+    var interval = 0;
+    const twoMainColor = [];
+
+    while (len > pos+1) {
+        pos = pos + 1;
+        interval = colorModel[pos].percent - colorModel[pos-1].percent;
+
+        if (interval > max) {
+            max = interval;
+            maxPos = pos - 1; 
+        }
+    };
+
+    twoMainColor[0] = colorModel[maxPos];
+    twoMainColor[1] = colorModel[maxPos + 1];
+
+    return twoMainColor;
+};
+
+const getMiddleColor = (twoColor) => {
+    const middleColor = {};
+
+    middleColor.r = Math.round((twoColor[0].r + twoColor[1].r)/2);
+    middleColor.g = Math.round((twoColor[0].g + twoColor[1].g)/2);
+    middleColor.b = Math.round((twoColor[0].b + twoColor[1].b)/2);
+    middleColor.a = Math.round(((twoColor[0].a + twoColor[1].a)/2)*10)/10;
+
+    return middleColor;
+};
+
 module.exports.createColorModel = createColorModel;
 module.exports.checkOfTransparent = checkOfTransparent;
 module.exports.checkOfPercent = checkOfPercent;
 module.exports.sortByPercent = sortByPercent;
+module.exports.getTwoMaxColors = getTwoMaxColors;
+module.exports.getMiddleColor = getMiddleColor;
