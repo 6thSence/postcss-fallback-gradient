@@ -6,25 +6,13 @@ Object.defineProperty(exports, "__esModule", {
 var colorTable = exports.colorTable = require('./crayola.json');
 
 var sortByPercent = exports.sortByPercent = function sortByPercent(colorModel) {
-    colorModel.sort(function (a, b) {
-        if (a.percent > b.percent) {
-            return 1;
-        } else if (a.percent < b.percent) {
-            return -1;
-        }
-
-        return 0;
+    return colorModel.sort(function (a, b) {
+        return a.percent > b.percent ? 1 : a.percent < b.percent ? -1 : 0;
     });
-
-    return colorModel;
 };
 
 var hexToRgb = exports.hexToRgb = function hexToRgb(hex) {
-
-    if (hex.length === 4) {
-        hex = '#' + hex[1] + hex[1] + hex[2] + hex[2] + hex[3] + hex[3];
-    }
-
+    hex.length === 4 ? hex = '#' + hex[1] + hex[1] + hex[2] + hex[2] + hex[3] + hex[3] : null;
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
 
     return result ? {
@@ -272,11 +260,3 @@ var getMiddleColor = exports.getMiddleColor = function getMiddleColor(twoColor) 
 
     return middleColor;
 };
-
-//module.exports.createColorModel = createColorModel;
-//module.exports.checkOfTransparent = checkOfTransparent;
-//module.exports.checkOfPercent = checkOfPercent;
-//module.exports.sortByPercent = sortByPercent;
-//module.exports.getTwoMaxColors = getTwoMaxColors;
-//module.exports.getMiddleColor = getMiddleColor;
-//module.exports.rbgToHex = rbgToHex;
