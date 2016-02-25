@@ -1,562 +1,562 @@
 [
 	{
-		color: "aliceblue",
-		hex: "#F0F8FF"
+		"color": "aliceblue",
+		"hex": "#F0F8FF"
 	},
 	{
-		color: "antiquewhite",
-		hex: "#FAEBD7"
+		"color": "antiquewhite",
+		"hex": "#FAEBD7"
 	},
 	{
-		color: "aqua",
-		hex: "#00FFFF"
+		"color": "aqua",
+		"hex": "#00FFFF"
 	},
 	{
-		color: "aquamarine",
-		hex: "#7FFFD4"
+		"color": "aquamarine",
+		"hex": "#7FFFD4"
 	},
 	{
-		color: "azure",
-		hex: "#F0FFFF"
+		"color": "azure",
+		"hex": "#F0FFFF"
 	},
 	{
-		color: "beige",
-		hex: "#F5F5DC"
+		"color": "beige",
+		"hex": "#F5F5DC"
 	},
 	{
-		color: "bisque",
-		hex: "#FFE4C4"
+		"color": "bisque",
+		"hex": "#FFE4C4"
 	},
 	{
-		color: "black",
-		hex: "#000000"
+		"color": "black",
+		"hex": "#000000"
 	},
 	{
-		color: "blanchedalmond",
-		hex: "#FFEBCD"
+		"color": "blanchedalmond",
+		"hex": "#FFEBCD"
 	},
 	{
-		color: "blue",
-		hex: "#0000FF"
+		"color": "blue",
+		"hex": "#0000FF"
 	},
 	{
-		color: "blueviolet",
-		hex: "#8A2BE2"
+		"color": "blueviolet",
+		"hex": "#8A2BE2"
 	},
 	{
-		color: "brown",
-		hex: "#A52A2A"
+		"color": "brown",
+		"hex": "#A52A2A"
 	},
 	{
-		color: "burlywood",
-		hex: "#DEB887"
+		"color": "burlywood",
+		"hex": "#DEB887"
 	},
 	{
-		color: "cadetblue",
-		hex: "#5F9EA0"
+		"color": "cadetblue",
+		"hex": "#5F9EA0"
 	},
 	{
-		color: "chartreuse",
-		hex: "#7FFF00"
+		"color": "chartreuse",
+		"hex": "#7FFF00"
 	},
 	{
-		color: "chocolate",
-		hex: "#D2691E"
+		"color": "chocolate",
+		"hex": "#D2691E"
 	},
 	{
-		color: "coral",
-		hex: "#FF7F50"
+		"color": "coral",
+		"hex": "#FF7F50"
 	},
 	{
-		color: "cornflowerblue",
-		hex: "#6495ED"
+		"color": "cornflowerblue",
+		"hex": "#6495ED"
 	},
 	{
-		color: "cornsilk",
-		hex: "#FFF8DC"
+		"color": "cornsilk",
+		"hex": "#FFF8DC"
 	},
 	{
-		color: "crimson",
-		hex: "#DC143C"
+		"color": "crimson",
+		"hex": "#DC143C"
 	},
 	{
-		color: "cyan",
-		hex: "#00FFFF"
+		"color": "cyan",
+		"hex": "#00FFFF"
 	},
 	{
-		color: "darkblue",
-		hex: "#00008B"
+		"color": "darkblue",
+		"hex": "#00008B"
 	},
 	{
-		color: "darkcyan",
-		hex: "#008B8B"
+		"color": "darkcyan",
+		"hex": "#008B8B"
 	},
 	{
-		color: "darkgoldenrod",
-		hex: "#B8860B"
+		"color": "darkgoldenrod",
+		"hex": "#B8860B"
 	},
 	{
-		color: "darkgray",
-		hex: "#A9A9A9"
+		"color": "darkgray",
+		"hex": "#A9A9A9"
 	},
 	{
-		color: "darkgreen",
-		hex: "#006400"
+		"color": "darkgreen",
+		"hex": "#006400"
 	},
 	{
-		color: "darkkhaki",
-		hex: "#BDB76B"
+		"color": "darkkhaki",
+		"hex": "#BDB76B"
 	},
 	{
-		color: "darkmagenta",
-		hex: "#8B008B"
+		"color": "darkmagenta",
+		"hex": "#8B008B"
 	},
 	{
-		color: "darkolivegreen",
-		hex: "#556B2F"
+		"color": "darkolivegreen",
+		"hex": "#556B2F"
 	},
 	{
-		color: "darkorange",
-		hex: "#FF8C00"
+		"color": "darkorange",
+		"hex": "#FF8C00"
 	},
 	{
-		color: "darkorchid",
-		hex: "#9932CC"
+		"color": "darkorchid",
+		"hex": "#9932CC"
 	},
 	{
-		color: "darkred",
-		hex: "#8B0000"
+		"color": "darkred",
+		"hex": "#8B0000"
 	},
 	{
-		color: "darksalmon",
-		hex: "#E9967A"
+		"color": "darksalmon",
+		"hex": "#E9967A"
 	},
 	{
-		color: "darkseagreen",
-		hex: "#8FBC8F"
+		"color": "darkseagreen",
+		"hex": "#8FBC8F"
 	},
 	{
-		color: "darkslateblue",
-		hex: "#483D8B"
+		"color": "darkslateblue",
+		"hex": "#483D8B"
 	},
 	{
-		color: "darkslategray",
-		hex: "#2F4F4F"
+		"color": "darkslategray",
+		"hex": "#2F4F4F"
 	},
 	{
-		color: "darkturquoise",
-		hex: "#00CED1"
+		"color": "darkturquoise",
+		"hex": "#00CED1"
 	},
 	{
-		color: "darkviolet",
-		hex: "#9400D3"
+		"color": "darkviolet",
+		"hex": "#9400D3"
 	},
 	{
-		color: "deeppink",
-		hex: "#FF1493"
+		"color": "deeppink",
+		"hex": "#FF1493"
 	},
 	{
-		color: "deepskyblue",
-		hex: "#00BFFF"
+		"color": "deepskyblue",
+		"hex": "#00BFFF"
 	},
 	{
-		color: "dimgray",
-		hex: "#696969"
+		"color": "dimgray",
+		"hex": "#696969"
 	},
 	{
-		color: "dodgerblue",
-		hex: "#1E90FF"
+		"color": "dodgerblue",
+		"hex": "#1E90FF"
 	},
 	{
-		color: "firebrick",
-		hex: "#B22222"
+		"color": "firebrick",
+		"hex": "#B22222"
 	},
 	{
-		color: "floralwhite",
-		hex: "#FFFAF0"
+		"color": "floralwhite",
+		"hex": "#FFFAF0"
 	},
 	{
-		color: "forestgreen",
-		hex: "#228B22"
+		"color": "forestgreen",
+		"hex": "#228B22"
 	},
 	{
-		color: "fuchsia",
-		hex: "#FF00FF"
+		"color": "fuchsia",
+		"hex": "#FF00FF"
 	},
 	{
-		color: "gainsboro",
-		hex: "#DCDCDC"
+		"color": "gainsboro",
+		"hex": "#DCDCDC"
 	},
 	{
-		color: "ghostwhite",
-		hex: "#F8F8FF"
+		"color": "ghostwhite",
+		"hex": "#F8F8FF"
 	},
 	{
-		color: "gold",
-		hex: "#FFD700"
+		"color": "gold",
+		"hex": "#FFD700"
 	},
 	{
-		color: "goldenrod",
-		hex: "#DAA520"
+		"color": "goldenrod",
+		"hex": "#DAA520"
 	},
 	{
-		color: "gray",
-		hex: "#808080"
+		"color": "gray",
+		"hex": "#808080"
 	},
 	{
-		color: "green",
-		hex: "#008000"
+		"color": "green",
+		"hex": "#008000"
 	},
 	{
-		color: "greenyellow",
-		hex: "#ADFF2F"
+		"color": "greenyellow",
+		"hex": "#ADFF2F"
 	},
 	{
-		color: "honeydew",
-		hex: "#F0FFF0"
+		"color": "honeydew",
+		"hex": "#F0FFF0"
 	},
 	{
-		color: "hotpink",
-		hex: "#FF69B4"
+		"color": "hotpink",
+		"hex": "#FF69B4"
 	},
 	{
-		color: "indianred",
-		hex: "#CD5C5C"
+		"color": "indianred",
+		"hex": "#CD5C5C"
 	},
 	{
-		color: "indigo",
-		hex: "#4B0082"
+		"color": "indigo",
+		"hex": "#4B0082"
 	},
 	{
-		color: "ivory",
-		hex: "#FFFFF0"
+		"color": "ivory",
+		"hex": "#FFFFF0"
 	},
 	{
-		color: "khaki",
-		hex: "#F0E68C"
+		"color": "khaki",
+		"hex": "#F0E68C"
 	},
 	{
-		color: "lavender",
-		hex: "#E6E6FA"
+		"color": "lavender",
+		"hex": "#E6E6FA"
 	},
 	{
-		color: "lavenderblush",
-		hex: "#FFF0F5"
+		"color": "lavenderblush",
+		"hex": "#FFF0F5"
 	},
 	{
-		color: "lawngreen",
-		hex: "#7CFC00"
+		"color": "lawngreen",
+		"hex": "#7CFC00"
 	},
 	{
-		color: "lemonchiffon",
-		hex: "#FFFACD"
+		"color": "lemonchiffon",
+		"hex": "#FFFACD"
 	},
 	{
-		color: "lightblue",
-		hex: "#ADD8E6"
+		"color": "lightblue",
+		"hex": "#ADD8E6"
 	},
 	{
-		color: "lightcoral",
-		hex: "#F08080"
+		"color": "lightcoral",
+		"hex": "#F08080"
 	},
 	{
-		color: "lightcyan",
-		hex: "#E0FFFF"
+		"color": "lightcyan",
+		"hex": "#E0FFFF"
 	},
 	{
-		color: "lightgoldenrodyellow",
-		hex: "#FAFAD2"
+		"color": "lightgoldenrodyellow",
+		"hex": "#FAFAD2"
 	},
 	{
-		color: "lightgreen",
-		hex: "#90EE90"
+		"color": "lightgreen",
+		"hex": "#90EE90"
 	},
 	{
-		color: "lightgrey",
-		hex: "#D3D3D3"
+		"color": "lightgrey",
+		"hex": "#D3D3D3"
 	},
 	{
-		color: "lightpink",
-		hex: "#FFB6C1"
+		"color": "lightpink",
+		"hex": "#FFB6C1"
 	},
 	{
-		color: "lightsalmon",
-		hex: "#FFA07A"
+		"color": "lightsalmon",
+		"hex": "#FFA07A"
 	},
 	{
-		color: "lightseagreen",
-		hex: "#20B2AA"
+		"color": "lightseagreen",
+		"hex": "#20B2AA"
 	},
 	{
-		color: "lightskyblue",
-		hex: "#87CEFA"
+		"color": "lightskyblue",
+		"hex": "#87CEFA"
 	},
 	{
-		color: "lightslategray",
-		hex: "#778899"
+		"color": "lightslategray",
+		"hex": "#778899"
 	},
 	{
-		color: "lightsteelblue",
-		hex: "#B0C4DE"
+		"color": "lightsteelblue",
+		"hex": "#B0C4DE"
 	},
 	{
-		color: "lightyellow",
-		hex: "#FFFFE0"
+		"color": "lightyellow",
+		"hex": "#FFFFE0"
 	},
 	{
-		color: "lime",
-		hex: "#00FF00"
+		"color": "lime",
+		"hex": "#00FF00"
 	},
 	{
-		color: "limegreen",
-		hex: "#32CD32"
+		"color": "limegreen",
+		"hex": "#32CD32"
 	},
 	{
-		color: "linen",
-		hex: "#FAF0E6"
+		"color": "linen",
+		"hex": "#FAF0E6"
 	},
 	{
-		color: "magenta",
-		hex: "#FF00FF"
+		"color": "magenta",
+		"hex": "#FF00FF"
 	},
 	{
-		color: "maroon",
-		hex: "#800000"
+		"color": "maroon",
+		"hex": "#800000"
 	},
 	{
-		color: "mediumaquamarine",
-		hex: "#66CDAA"
+		"color": "mediumaquamarine",
+		"hex": "#66CDAA"
 	},
 	{
-		color: "mediumblue",
-		hex: "#0000CD"
+		"color": "mediumblue",
+		"hex": "#0000CD"
 	},
 	{
-		color: "mediumorchid",
-		hex: "#BA55D3"
+		"color": "mediumorchid",
+		"hex": "#BA55D3"
 	},
 	{
-		color: "mediumpurple",
-		hex: "#9370DB"
+		"color": "mediumpurple",
+		"hex": "#9370DB"
 	},
 	{
-		color: "mediumseagreen",
-		hex: "#3CB371"
+		"color": "mediumseagreen",
+		"hex": "#3CB371"
 	},
 	{
-		color: "mediumslateblue",
-		hex: "#7B68EE"
+		"color": "mediumslateblue",
+		"hex": "#7B68EE"
 	},
 	{
-		color: "mediumspringgreen",
-		hex: "#00FA9A"
+		"color": "mediumspringgreen",
+		"hex": "#00FA9A"
 	},
 	{
-		color: "mediumturquoise",
-		hex: "#48D1CC"
+		"color": "mediumturquoise",
+		"hex": "#48D1CC"
 	},
 	{
-		color: "mediumvioletred",
-		hex: "#C71585"
+		"color": "mediumvioletred",
+		"hex": "#C71585"
 	},
 	{
-		color: "midnightblue",
-		hex: "#191970"
+		"color": "midnightblue",
+		"hex": "#191970"
 	},
 	{
-		color: "mintcream",
-		hex: "#F5FFFA"
+		"color": "mintcream",
+		"hex": "#F5FFFA"
 	},
 	{
-		color: "mistyrose",
-		hex: "#FFE4E1"
+		"color": "mistyrose",
+		"hex": "#FFE4E1"
 	},
 	{
-		color: "moccasin",
-		hex: "#FFE4B5"
+		"color": "moccasin",
+		"hex": "#FFE4B5"
 	},
 	{
-		color: "navajowhite",
-		hex: "#FFDEAD"
+		"color": "navajowhite",
+		"hex": "#FFDEAD"
 	},
 	{
-		color: "navy",
-		hex: "#000080"
+		"color": "navy",
+		"hex": "#000080"
 	},
 	{
-		color: "oldlace",
-		hex: "#FDF5E6"
+		"color": "oldlace",
+		"hex": "#FDF5E6"
 	},
 	{
-		color: "olive",
-		hex: "#808000"
+		"color": "olive",
+		"hex": "#808000"
 	},
 	{
-		color: "olivedrab",
-		hex: "#6B8E23"
+		"color": "olivedrab",
+		"hex": "#6B8E23"
 	},
 	{
-		color: "orange",
-		hex: "#FFA500"
+		"color": "orange",
+		"hex": "#FFA500"
 	},
 	{
-		color: "orangered",
-		hex: "#FF4500"
+		"color": "orangered",
+		"hex": "#FF4500"
 	},
 	{
-		color: "orchid",
-		hex: "#DA70D6"
+		"color": "orchid",
+		"hex": "#DA70D6"
 	},
 	{
-		color: "palegoldenrod",
-		hex: "#EEE8AA"
+		"color": "palegoldenrod",
+		"hex": "#EEE8AA"
 	},
 	{
-		color: "palegreen",
-		hex: "#98FB98"
+		"color": "palegreen",
+		"hex": "#98FB98"
 	},
 	{
-		color: "paleturquoise",
-		hex: "#AFEEEE"
+		"color": "paleturquoise",
+		"hex": "#AFEEEE"
 	},
 	{
-		color: "palevioletred",
-		hex: "#DB7093"
+		"color": "palevioletred",
+		"hex": "#DB7093"
 	},
 	{
-		color: "papayawhip",
-		hex: "#FFEFD5"
+		"color": "papayawhip",
+		"hex": "#FFEFD5"
 	},
 	{
-		color: "peachpuff",
-		hex: "#FFDAB9"
+		"color": "peachpuff",
+		"hex": "#FFDAB9"
 	},
 	{
-		color: "peru",
-		hex: "#CD853F"
+		"color": "peru",
+		"hex": "#CD853F"
 	},
 	{
-		color: "pink",
-		hex: "#FFC0CB"
+		"color": "pink",
+		"hex": "#FFC0CB"
 	},
 	{
-		color: "plum",
-		hex: "#DDA0DD"
+		"color": "plum",
+		"hex": "#DDA0DD"
 	},
 	{
-		color: "powderblue",
-		hex: "#B0E0E6"
+		"color": "powderblue",
+		"hex": "#B0E0E6"
 	},
 	{
-		color: "purple",
-		hex: "#800080"
+		"color": "purple",
+		"hex": "#800080"
 	},
 	{
-		color: "red",
-		hex: "#FF0000"
+		"color": "red",
+		"hex": "#FF0000"
 	},
 	{
-		color: "rosybrown",
-		hex: "#BC8F8F"
+		"color": "rosybrown",
+		"hex": "#BC8F8F"
 	},
 	{
-		color: "royalblue",
-		hex: "#4169E1"
+		"color": "royalblue",
+		"hex": "#4169E1"
 	},
 	{
-		color: "saddlebrown",
-		hex: "#8B4513"
+		"color": "saddlebrown",
+		"hex": "#8B4513"
 	},
 	{
-		color: "salmon",
-		hex: "#FA8072"
+		"color": "salmon",
+		"hex": "#FA8072"
 	},
 	{
-		color: "sandybrown",
-		hex: "#F4A460"
+		"color": "sandybrown",
+		"hex": "#F4A460"
 	},
 	{
-		color: "seagreen",
-		hex: "#2E8B57"
+		"color": "seagreen",
+		"hex": "#2E8B57"
 	},
 	{
-		color: "seashell",
-		hex: "#FFF5EE"
+		"color": "seashell",
+		"hex": "#FFF5EE"
 	},
 	{
-		color: "sienna",
-		hex: "#A0522D"
+		"color": "sienna",
+		"hex": "#A0522D"
 	},
 	{
-		color: "silver",
-		hex: "#C0C0C0"
+		"color": "silver",
+		"hex": "#C0C0C0"
 	},
 	{
-		color: "skyblue",
-		hex: "#87CEEB"
+		"color": "skyblue",
+		"hex": "#87CEEB"
 	},
 	{
-		color: "slateblue",
-		hex: "#6A5ACD"
+		"color": "slateblue",
+		"hex": "#6A5ACD"
 	},
 	{
-		color: "slategray",
-		hex: "#708090"
+		"color": "slategray",
+		"hex": "#708090"
 	},
 	{
-		color: "snow",
-		hex: "#FFFAFA"
+		"color": "snow",
+		"hex": "#FFFAFA"
 	},
 	{
-		color: "springgreen",
-		hex: "#00FF7F"
+		"color": "springgreen",
+		"hex": "#00FF7F"
 	},
 	{
-		color: "steelblue",
-		hex: "#4682B4"
+		"color": "steelblue",
+		"hex": "#4682B4"
 	},
 	{
-		color: "tan",
-		hex: "#D2B48C"
+		"color": "tan",
+		"hex": "#D2B48C"
 	},
 	{
-		color: "teal",
-		hex: "#008080"
+		"color": "teal",
+		"hex": "#008080"
 	},
 	{
-		color: "thistle",
-		hex: "#D8BFD8"
+		"color": "thistle",
+		"hex": "#D8BFD8"
 	},
 	{
-		color: "tomato",
-		hex: "#FF6347"
+		"color": "tomato",
+		"hex": "#FF6347"
 	},
 	{
-		color: "turquoise",
-		hex: "#40E0D0"
+		"color": "turquoise",
+		"hex": "#40E0D0"
 	},
 	{
-		color: "violet",
-		hex: "#EE82EE"
+		"color": "violet",
+		"hex": "#EE82EE"
 	},
 	{
-		color: "wheat",
-		hex: "#F5DEB3"
+		"color": "wheat",
+		"hex": "#F5DEB3"
 	},
 	{
-		color: "white",
-		hex: "#FFFFFF"
+		"color": "white",
+		"hex": "#FFFFFF"
 	},
 	{
-		color: "whitesmoke",
-		hex: "#F5F5F5"
+		"color": "whitesmoke",
+		"hex": "#F5F5F5"
 	},
 	{
-		color: "yellow",
-		hex: "#FFFF00"
+		"color": "yellow",
+		"hex": "#FFFF00"
 	},
 	{
-		color: "yellowgree,
-		hex: "##9ACD32"
+		"color": "yellowgree",
+		"hex": "#9ACD32"
 	}
 ]

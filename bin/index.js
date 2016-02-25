@@ -1,7 +1,10 @@
 'use strict';
 
+var _utils = require('./utils');
+
 var postcss = require('postcss');
-var utils = require('./utils');
+//const utils = require ('./utils');
+
 
 module.exports = postcss.plugin('myplug', function myplug(options) {
     return function (css) {
@@ -17,15 +20,15 @@ module.exports = postcss.plugin('myplug', function myplug(options) {
 
                 if (decl.value.indexOf('gradient') !== -1) {
                     if (firstRull) {
-                        colorModel = utils.createColorModel(decl, firstRull, colorModel); // построение модели цветов
-                        colorModel = utils.checkOfTransparent(colorModel); // обратока transparent
-                        colorModel = utils.sortByPercent(colorModel); // сортировка без смешения undefined процентов
-                        colorModel = utils.checkOfPercent(colorModel); // расстановка процентов там где их нет
-                        colorModel = utils.sortByPercent(colorModel); // повторная сортировка с новыми процентами
-                        var twoMainColor = utils.getTwoMaxColors(colorModel); // нахождение границ максимального отрывка
-                        var middleColor = utils.getMiddleColor(twoMainColor); // нахождение среднего цвета между двумя точками
+                        colorModel = (0, _utils.createColorModel)(decl, firstRull, colorModel); // построение модели цветов
+                        colorModel = (0, _utils.checkOfTransparent)(colorModel); // обратока transparent
+                        colorModel = (0, _utils.sortByPercent)(colorModel); // сортировка без смешения undefined процентов
+                        colorModel = (0, _utils.checkOfPercent)(colorModel); // расстановка процентов там где их нет
+                        colorModel = (0, _utils.sortByPercent)(colorModel); // повторная сортировка с новыми процентами
+                        var twoMainColor = (0, _utils.getTwoMaxColors)(colorModel); // нахождение границ максимального отрывка
+                        var middleColor = (0, _utils.getMiddleColor)(twoMainColor); // нахождение среднего цвета между двумя точками
                         colorRgba = 'rgba(' + middleColor.r + ', ' + middleColor.g + ', ' + middleColor.b + ', ' + middleColor.a + ')';
-                        colorHex = utils.rbgToHex(middleColor); // получаем hex цвет из rgba
+                        colorHex = (0, _utils.rbgToHex)(middleColor); // получаем hex цвет из rgba
                     }
                 }
 

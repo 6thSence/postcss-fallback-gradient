@@ -1,8 +1,11 @@
 'use strict';
 
-var colorTable = require('./crayola.json');
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var colorTable = exports.colorTable = require('./crayola.json');
 
-var sortByPercent = function sortByPercent(colorModel) {
+var sortByPercent = exports.sortByPercent = function sortByPercent(colorModel) {
     colorModel.sort(function (a, b) {
         if (a.percent > b.percent) {
             return 1;
@@ -16,7 +19,7 @@ var sortByPercent = function sortByPercent(colorModel) {
     return colorModel;
 };
 
-var hexToRgb = function hexToRgb(hex) {
+var hexToRgb = exports.hexToRgb = function hexToRgb(hex) {
 
     if (hex.length === 4) {
         hex = '#' + hex[1] + hex[1] + hex[2] + hex[2] + hex[3] + hex[3];
@@ -31,7 +34,7 @@ var hexToRgb = function hexToRgb(hex) {
     } : null;
 };
 
-var rbgToHex = function rbgToHex(rgbColor) {
+var rbgToHex = exports.rbgToHex = function rbgToHex(rgbColor) {
     var r = (+rgbColor.r).toString(16);
     var g = (+rgbColor.g).toString(16);
     var b = (+rgbColor.b).toString(16);
@@ -43,7 +46,7 @@ var rbgToHex = function rbgToHex(rgbColor) {
     return '#' + (r + g + b);
 };
 
-var srtToArray = function srtToArray(str) {
+var srtToArray = exports.srtToArray = function srtToArray(str) {
     var array = [];
     var pos = -1;
     var len = str.length;
@@ -66,7 +69,8 @@ var srtToArray = function srtToArray(str) {
     return array;
 };
 
-var getPercent = function getPercent(pos, array) {
+var getPercent = exports.getPercent = function getPercent(pos, array) {
+    var percent = undefined;
 
     if (array[pos] && array[pos].indexOf('%') != -1) {
 
@@ -77,7 +81,7 @@ var getPercent = function getPercent(pos, array) {
     }
 };
 
-var checkOfTransparent = function checkOfTransparent(colorModel) {
+var checkOfTransparent = exports.checkOfTransparent = function checkOfTransparent(colorModel) {
 
     colorModel.forEach(function (item, i, arr) {
         if (item.r === 'transparent') {
@@ -105,7 +109,7 @@ var checkOfTransparent = function checkOfTransparent(colorModel) {
     return colorModel;
 };
 
-var checkOfPercent = function checkOfPercent(colorModel) {
+var checkOfPercent = exports.checkOfPercent = function checkOfPercent(colorModel) {
 
     var und = 0; // колличество undefinde
     var min = 0; // значение до undefinde
@@ -145,7 +149,7 @@ var checkOfPercent = function checkOfPercent(colorModel) {
     return colorModel;
 };
 
-var createColorModel = function createColorModel(decl, firstRull, colorModel) {
+var createColorModel = exports.createColorModel = function createColorModel(decl, firstRull, colorModel) {
     var val = decl.value.slice(decl.value.indexOf(',') + 1, decl.value.length - 1);
     var array = srtToArray(val);
     var len = array.length;
@@ -233,7 +237,7 @@ var createColorModel = function createColorModel(decl, firstRull, colorModel) {
     return colorModel;
 };
 
-var getTwoMaxColors = function getTwoMaxColors(colorModel) {
+var getTwoMaxColors = exports.getTwoMaxColors = function getTwoMaxColors(colorModel) {
 
     var max = 0;
     var maxPos = 0;
@@ -258,7 +262,7 @@ var getTwoMaxColors = function getTwoMaxColors(colorModel) {
     return twoMainColor;
 };
 
-var getMiddleColor = function getMiddleColor(twoColor) {
+var getMiddleColor = exports.getMiddleColor = function getMiddleColor(twoColor) {
     var middleColor = {};
 
     middleColor.r = Math.round((twoColor[0].r + twoColor[1].r) / 2);
@@ -269,10 +273,10 @@ var getMiddleColor = function getMiddleColor(twoColor) {
     return middleColor;
 };
 
-module.exports.createColorModel = createColorModel;
-module.exports.checkOfTransparent = checkOfTransparent;
-module.exports.checkOfPercent = checkOfPercent;
-module.exports.sortByPercent = sortByPercent;
-module.exports.getTwoMaxColors = getTwoMaxColors;
-module.exports.getMiddleColor = getMiddleColor;
-module.exports.rbgToHex = rbgToHex;
+//module.exports.createColorModel = createColorModel;
+//module.exports.checkOfTransparent = checkOfTransparent;
+//module.exports.checkOfPercent = checkOfPercent;
+//module.exports.sortByPercent = sortByPercent;
+//module.exports.getTwoMaxColors = getTwoMaxColors;
+//module.exports.getMiddleColor = getMiddleColor;
+//module.exports.rbgToHex = rbgToHex;

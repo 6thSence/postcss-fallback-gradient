@@ -11,7 +11,7 @@
     "linear-gradient",
     "fallback"
   ],
-  "main": "lib/index.js",
+  "main": "bin/index.js",
   "author": {
     "name": "Pushkarskaya Dariya",
     "github": "https://github.com/6thSence",
