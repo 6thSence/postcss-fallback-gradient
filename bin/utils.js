@@ -205,23 +205,27 @@ var createColorModel = function createColorModel(decl, firstRull, colorModel) {
                         colorModel.push(color2);
                     }
 
-                    for (item in colorTable) {
+                    colorTable.filter(function (item) {
+                        return item.color === array[pos] ? true : null;
+                    });
 
-                        if (item === array[pos]) {
-                            // Если цвет из таблицы цветов
-                            color = { 'r': '', 'g': '', 'b': '', 'a': '', 'percent': '' };
-                            rgb = hexToRgb(colorTable[item].toUpperCase());
-                            color.r = +rgb.r;
-                            color.g = +rgb.g;
-                            color.b = +rgb.b;
-                            color.a = 1;
-                            color.percent = getPercent(pos + 1, array);
+                    //for (item in colorTable) {
+                    colorTable.map(function (item) {
 
-                            if (color.percent === undefined && colorModel.length === 0) color.percent = 0;
+                        //if (item[array[pos]]) { // Если цвет из таблицы цветов
+                        color = { 'r': '', 'g': '', 'b': '', 'a': '', 'percent': '' };
+                        rgb = hexToRgb(item.hex.toUpperCase());
+                        color.r = +rgb.r;
+                        color.g = +rgb.g;
+                        color.b = +rgb.b;
+                        color.a = 1;
+                        color.percent = getPercent(pos + 1, array);
 
-                            colorModel.push(color);
-                        };
-                    };
+                        if (color.percent === undefined && colorModel.length === 0) color.percent = 0;
+
+                        colorModel.push(color);
+                        //};
+                    });
                 }
             }
         }
