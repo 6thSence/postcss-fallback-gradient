@@ -27,32 +27,33 @@ var rbgToHex = exports.rbgToHex = function rbgToHex(rgbColor) {
     var g = (+rgbColor.g).toString(16);
     var b = (+rgbColor.b).toString(16);
 
-    if (r.length == 1) r = '0' + r;
-    if (g.length == 1) g = '0' + g;
-    if (b.length == 1) b = '0' + b;
+    if (r.length == 1) {
+        r = '0' + r;
+    };
+    if (g.length == 1) {
+        g = '0' + g;
+    };
+    if (b.length == 1) {
+        b = '0' + b;
+    };
 
     return '#' + (r + g + b);
 };
 
 var srtToArray = exports.srtToArray = function srtToArray(str) {
     var array = [];
-    var pos = -1;
-    var len = str.length;
     var arg = '';
 
-    while (pos !== len) {
-        pos++;
-        if (str[pos] === ' ' || str[pos] === ',' || str[pos] === '(' || str[pos] === ')' || pos === len) {
-
+    str.split('').map(function (item) {
+        if (item === ' ' || item === ',' || item === '(' || item === ')') {
             if (arg !== '') {
                 array.push(arg);
             }
-
             arg = '';
         } else {
-            arg = arg + str[pos];
+            arg = arg + item;
         }
-    }
+    });
 
     return array;
 };
