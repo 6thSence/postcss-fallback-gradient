@@ -183,15 +183,12 @@ var createColorModel = exports.createColorModel = function createColorModel(decl
 var getTwoMaxColors = exports.getTwoMaxColors = function getTwoMaxColors(colorModel) {
     var max = 0;
     var maxPos = 0;
-    var pos = 0;
-    var len = colorModel.length;
     var interval = 0;
 
     colorModel.map(function (item, i) {
         if (colorModel[i + 1]) {
             interval = colorModel[i + 1].percent - colorModel[i].percent;
         }
-
         if (interval > max) {
             max = interval;
             maxPos = i;
@@ -202,12 +199,10 @@ var getTwoMaxColors = exports.getTwoMaxColors = function getTwoMaxColors(colorMo
 };
 
 var getMiddleColor = exports.getMiddleColor = function getMiddleColor(twoColor) {
-    var middleColor = {};
+    var r = Math.round((twoColor[0].r + twoColor[1].r) / 2);
+    var g = Math.round((twoColor[0].g + twoColor[1].g) / 2);
+    var b = Math.round((twoColor[0].b + twoColor[1].b) / 2);
+    var a = Math.round((twoColor[0].a + twoColor[1].a) / 2 * 10) / 10;
 
-    middleColor.r = Math.round((twoColor[0].r + twoColor[1].r) / 2);
-    middleColor.g = Math.round((twoColor[0].g + twoColor[1].g) / 2);
-    middleColor.b = Math.round((twoColor[0].b + twoColor[1].b) / 2);
-    middleColor.a = Math.round((twoColor[0].a + twoColor[1].a) / 2 * 10) / 10;
-
-    return middleColor;
+    return { r: r, g: g, b: b, a: a };
 };
