@@ -4,18 +4,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var colorTable = exports.colorTable = require('./crayola.json');
-
 var sortByPercent = exports.sortByPercent = function sortByPercent(colorModel) {
     return colorModel.sort(function (a, b) {
         return a.percent > b.percent ? 1 : a.percent < b.percent ? -1 : 0;
     });
 };
-
 var hexToRgb = exports.hexToRgb = function hexToRgb(hex) {
     if (hex.length === 4) {
         hex = '#' + (hex[1].repeat(2) + hex[2].repeat(2) + hex[3].repeat(2));
-    }
-    ;
+    };
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
 
     return result ? {
@@ -24,32 +21,25 @@ var hexToRgb = exports.hexToRgb = function hexToRgb(hex) {
         b: parseInt(result[3], 16)
     } : null;
 };
-
 var rbgToHex = exports.rbgToHex = function rbgToHex(rgbColor) {
     var r = (+rgbColor.r).toString(16);
     var g = (+rgbColor.g).toString(16);
     var b = (+rgbColor.b).toString(16);
-
     if (r.length == 1) {
         r = '0' + r;
-    }
-    ;
+    };
     if (g.length == 1) {
         g = '0' + g;
-    }
-    ;
+    };
     if (b.length == 1) {
         b = '0' + b;
-    }
-    ;
+    };
 
     return '#' + (r + g + b);
 };
-
 var srtToArray = exports.srtToArray = function srtToArray(str) {
     var array = [];
     var arg = '';
-
     str.split('').map(function (item) {
         if (item === ' ' || item === ',' || item === '(' || item === ')') {
             if (arg) {
@@ -63,10 +53,8 @@ var srtToArray = exports.srtToArray = function srtToArray(str) {
 
     return array;
 };
-
 var getPercent = exports.getPercent = function getPercent(pos, array, firstColor) {
     var percent = undefined;
-
     if (array[pos] && array[pos].indexOf('%') != -1) {
         percent = +array[pos].slice(0, array[pos].indexOf('%'));
     } else if (!array[pos] && pos === array.length) {
@@ -75,9 +63,9 @@ var getPercent = exports.getPercent = function getPercent(pos, array, firstColor
     if (percent === undefined && firstColor) {
         percent = 0;
     }
+
     return percent;
 };
-
 var checkOfTransparent = exports.checkOfTransparent = function checkOfTransparent(colorModel) {
     colorModel.map(function (item, i, arr) {
         if (item.r === 'transparent') {
@@ -95,14 +83,12 @@ var checkOfTransparent = exports.checkOfTransparent = function checkOfTransparen
 
     return colorModel;
 };
-
 var checkOfPercent = exports.checkOfPercent = function checkOfPercent(colorModel) {
     var undefinedColl = 0; // колличество undefinde
     var min = 0; // значение до undefinde
     var max = 0; // значение после undefinde
     var factor = 0; // разница между значениями всех елементов от max до min
     var percent = 0; // значение присваемое елементу
-
     colorModel.map(function (item, i, arr) {
         if (item.percent === undefined) {
             undefinedColl++;
@@ -127,10 +113,10 @@ var checkOfPercent = exports.checkOfPercent = function checkOfPercent(colorModel
 
     return colorModel;
 };
-
-var createColorModel = exports.createColorModel = function createColorModel(decl, firstRull, colorModel) {
+var createColorModel = exports.createColorModel = function createColorModel(decl, firstRull) {
     var val = decl.value.slice(decl.value.indexOf(',') + 1, decl.value.length - 1); // значение свойства в скобках
     var arrayFromStr = srtToArray(val);
+    var colorModel = [];
 
     arrayFromStr.map(function (item, i, array) {
         var color = { 'r': '', 'g': '', 'b': '', 'a': 1, 'percent': undefined };
@@ -176,15 +162,12 @@ var createColorModel = exports.createColorModel = function createColorModel(decl
         }
         if (color.r !== '') colorModel.push(color);;
     });
-
     return colorModel;
 };
-
 var getTwoMaxColors = exports.getTwoMaxColors = function getTwoMaxColors(colorModel) {
     var max = 0;
     var maxPos = 0;
     var interval = 0;
-
     colorModel.map(function (item, i) {
         if (colorModel[i + 1]) {
             interval = colorModel[i + 1].percent - colorModel[i].percent;
@@ -197,7 +180,6 @@ var getTwoMaxColors = exports.getTwoMaxColors = function getTwoMaxColors(colorMo
 
     return [colorModel[maxPos], colorModel[maxPos + 1]];
 };
-
 var getMiddleColor = exports.getMiddleColor = function getMiddleColor(twoColor) {
     var r = Math.round((twoColor[0].r + twoColor[1].r) / 2);
     var g = Math.round((twoColor[0].g + twoColor[1].g) / 2);
@@ -205,4 +187,15 @@ var getMiddleColor = exports.getMiddleColor = function getMiddleColor(twoColor) 
     var a = Math.round((twoColor[0].a + twoColor[1].a) / 2 * 10) / 10;
 
     return { r: r, g: g, b: b, a: a };
+};
+var compose = exports.compose = function compose() {
+    for (var _len = arguments.length, funcs = Array(_len), _key = 0; _key < _len; _key++) {
+        funcs[_key] = arguments[_key];
+    }
+
+    return function (arg) {
+        return funcs.reduceRight(function (composed, f) {
+            return f(composed);
+        }, arg);
+    };
 };
