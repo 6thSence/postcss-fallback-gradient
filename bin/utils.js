@@ -64,12 +64,18 @@ var srtToArray = exports.srtToArray = function srtToArray(str) {
     return array;
 };
 
-var getPercent = exports.getPercent = function getPercent(pos, array) {
+var getPercent = exports.getPercent = function getPercent(pos, array, firstColor) {
+    var percent = undefined;
+
     if (array[pos] && array[pos].indexOf('%') != -1) {
-        return +array[pos].slice(0, array[pos].indexOf('%'));
+        percent = +array[pos].slice(0, array[pos].indexOf('%'));
     } else if (!array[pos] && pos === array.length) {
-        return 100;
+        percent = 100;
     }
+    if (percent === undefined && firstColor) {
+        percent = 0;
+    }
+    return percent;
 };
 
 var checkOfTransparent = exports.checkOfTransparent = function checkOfTransparent(colorModel) {
@@ -91,29 +97,29 @@ var checkOfTransparent = exports.checkOfTransparent = function checkOfTransparen
 };
 
 var checkOfPercent = exports.checkOfPercent = function checkOfPercent(colorModel) {
-    var und = 0; // колличество undefinde
+    var undefinedColl = 0; // колличество undefinde
     var min = 0; // значение до undefinde
     var max = 0; // значение после undefinde
-    var coef = 0; // разница между max и min
-    var val = 0; // значение присваемое елементу
+    var factor = 0; // разница между значениями всех елементов от max до min
+    var percent = 0; // значение присваемое елементу
 
     colorModel.map(function (item, i, arr) {
         if (item.percent === undefined) {
-            und = und + 1;
-        } else if (und > 0) {
+            undefinedColl++;
+        } else if (undefinedColl > 0) {
             min = max;
             max = item.percent;
-            coef = (max + min) / (und + 1);
-            val = max - coef;
+            factor = (max + min) / (undefinedColl + 1);
+            percent = max - factor;
 
-            while (und > 0) {
-                arr[i - und].percent = val;
-                val = val - coef;
-                und--;
+            while (undefinedColl > 0) {
+                arr[i - undefinedColl].percent = percent;
+                percent -= factor;
+                undefinedColl--;
             }
 
             min = max;
-            max = und = 0;
+            max = undefinedColl = 0;
         } else if (item.percent > max) {
             max = item.percent;
         }
@@ -123,103 +129,58 @@ var checkOfPercent = exports.checkOfPercent = function checkOfPercent(colorModel
 };
 
 var createColorModel = exports.createColorModel = function createColorModel(decl, firstRull, colorModel) {
-    var val = decl.value.slice(decl.value.indexOf(',') + 1, decl.value.length - 1);
-    var array = srtToArray(val);
-    var len = array.length;
+    var val = decl.value.slice(decl.value.indexOf(',') + 1, decl.value.length - 1); // значение свойства в скобках
+    var arrayFromStr = srtToArray(val);
 
-    var pos = -1;
-    while (pos !== len - 1) {
-        pos++;
-
-        if (array[pos] && array[pos].indexOf('#') === 0) {
+    arrayFromStr.map(function (item, i, array) {
+        var color = { 'r': '', 'g': '', 'b': '', 'a': 1, 'percent': undefined };
+        if (item && item.indexOf('#') === 0) {
             // Если цвет hex
-            var color = { 'r': '', 'g': '', 'b': '', 'a': '', 'percent': '' };
-            var rgb = hexToRgb(array[pos].toUpperCase());
+            var rgb = hexToRgb(item.toUpperCase());
             color.r = +rgb.r;
             color.g = +rgb.g;
             color.b = +rgb.b;
-            color.a = 1;
-            color.percent = getPercent(pos + 1, array);
-
-            if (color.percent === undefined && colorModel.length === 0) {
-                color.percent = 0;
-            }
-
-            colorModel.push(color);
+            color.percent = getPercent(i++, array, colorModel.length === 0);
         } else {
-            if (array[pos] && !array[pos].match(/\d+/)) {
-                // Если цвет rgbs
-                if (array[pos] === 'rgba') {
-                    color = { 'r': '', 'g': '', 'b': '', 'a': 0, 'percent': undefined };
-                    color.r = +array[pos + 1];
-                    color.g = +array[pos + 2];
-                    color.b = +array[pos + 3];
-                    color.a = +array[pos + 4];
-                    color.percent = getPercent(pos + 5, array);
-
-                    if (color.percent === undefined && colorModel.length === 0) {
-                        color.percent = 0;
-                    }
-
-                    colorModel.push(color);
-                } else if (array[pos] === 'rgb') {
+            if (item && !item.match(/\d+/)) {
+                // Если цвет rgba
+                if (item === 'rgba') {
+                    color.r = +array[i + 1];
+                    color.g = +array[i + 2];
+                    color.b = +array[i + 3];
+                    color.a = +array[i + 4];
+                    color.percent = getPercent(i + 5, array, colorModel.length === 0);
+                } else if (item === 'rgb') {
                     // Если цвет rgb
-                    color = { 'r': '', 'g': '', 'b': '', 'a': 0, 'percent': undefined };
-                    color.r = +array[pos + 1];
-                    color.g = +array[pos + 2];
-                    color.b = +array[pos + 3];
-                    color.a = 1;
-                    color.percent = getPercent(pos + 4, array);
-
-                    if (color.percent === undefined && colorModel.length === 0) {
-                        color.percent = 0;
-                    }
-
-                    colorModel.push(color);
+                    color.r = +array[i + 1];
+                    color.g = +array[i + 2];
+                    color.b = +array[i + 3];
+                    color.percent = getPercent(i + 4, array, colorModel.length === 0);
                 } else {
                     // Если цвет написан словом
-
-                    if (array[pos] === 'transparent') {
+                    if (item === 'transparent') {
                         // Если это transparent
-                        var color1 = { 'r': 'transparent', 'g': '1', 'b': '', 'a': 0, 'percent': undefined };
-                        var color2 = { 'r': 'transparent', 'g': '2', 'b': '', 'a': 0, 'percent': undefined };
-
-                        colorModel.push(color1);
-                        colorModel.push(color2);
+                        colorModel.push({ 'r': 'transparent', 'g': '1', 'b': '', 'a': 0, 'percent': undefined }, { 'r': 'transparent', 'g': '2', 'b': '', 'a': 0, 'percent': undefined });
                     }
-
-                    colorTable.filter(function (item) {
-                        return item.color === array[pos] ? true : null;
-                    });
-
-                    //for (item in colorTable) {
-                    colorTable.map(function (item) {
-
-                        //if (item[array[pos]]) { // Если цвет из таблицы цветов
-                        color = { 'r': '', 'g': '', 'b': '', 'a': 0, 'percent': undefined };
-                        rgb = hexToRgb(item.hex.toUpperCase());
-                        color.r = +rgb.r;
-                        color.g = +rgb.g;
-                        color.b = +rgb.b;
-                        color.a = 1;
-                        color.percent = getPercent(pos + 1, array);
-
-                        if (color.percent === undefined && colorModel.length === 0) {
-                            color.percent = 0;
+                    colorTable.map(function (colorFromTable) {
+                        if (colorFromTable.name === item) {
+                            rgb = hexToRgb(colorFromTable.hex.toUpperCase());
+                            color.r = +rgb.r;
+                            color.g = +rgb.g;
+                            color.b = +rgb.b;
+                            color.percent = getPercent(i + 1, array, colorModel.length === 0);
                         }
-
-                        colorModel.push(color);
-                        //};
                     });
                 }
             }
         }
-    }
+        if (color.r !== '') colorModel.push(color);;
+    });
+
     return colorModel;
 };
 
 var getTwoMaxColors = exports.getTwoMaxColors = function getTwoMaxColors(colorModel) {
-
     var max = 0;
     var maxPos = 0;
     var pos = 0;
@@ -235,8 +196,7 @@ var getTwoMaxColors = exports.getTwoMaxColors = function getTwoMaxColors(colorMo
             max = interval;
             maxPos = pos - 1;
         }
-    }
-    ;
+    };
 
     twoMainColor[0] = colorModel[maxPos];
     twoMainColor[1] = colorModel[maxPos + 1];
