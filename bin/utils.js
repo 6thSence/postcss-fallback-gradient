@@ -12,7 +12,10 @@ var sortByPercent = exports.sortByPercent = function sortByPercent(colorModel) {
 };
 
 var hexToRgb = exports.hexToRgb = function hexToRgb(hex) {
-    hex.length === 4 ? hex = '#' + hex[1] + hex[1] + hex[2] + hex[2] + hex[3] + hex[3] : null;
+    if (hex.length === 4) {
+        hex = '#' + (hex[1].repeat(2) + hex[2].repeat(2) + hex[3].repeat(2));
+    }
+    ;
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
 
     return result ? {
@@ -29,13 +32,16 @@ var rbgToHex = exports.rbgToHex = function rbgToHex(rgbColor) {
 
     if (r.length == 1) {
         r = '0' + r;
-    };
+    }
+    ;
     if (g.length == 1) {
         g = '0' + g;
-    };
+    }
+    ;
     if (b.length == 1) {
         b = '0' + b;
-    };
+    }
+    ;
 
     return '#' + (r + g + b);
 };
@@ -46,7 +52,7 @@ var srtToArray = exports.srtToArray = function srtToArray(str) {
 
     str.split('').map(function (item) {
         if (item === ' ' || item === ',' || item === '(' || item === ')') {
-            if (arg !== '') {
+            if (arg) {
                 array.push(arg);
             }
             arg = '';
@@ -59,38 +65,25 @@ var srtToArray = exports.srtToArray = function srtToArray(str) {
 };
 
 var getPercent = exports.getPercent = function getPercent(pos, array) {
-    var percent = undefined;
-
     if (array[pos] && array[pos].indexOf('%') != -1) {
-
-        return percent = +array[pos].slice(0, array[pos].indexOf('%'));
+        return +array[pos].slice(0, array[pos].indexOf('%'));
     } else if (!array[pos] && pos === array.length) {
-
-        return percent = 100;
+        return 100;
     }
 };
 
 var checkOfTransparent = exports.checkOfTransparent = function checkOfTransparent(colorModel) {
 
-    colorModel.forEach(function (item, i, arr) {
+    colorModel.map(function (item, i, arr) {
         if (item.r === 'transparent') {
-            switch (item.g) {
-                case '1':
-                    item.r = arr[i - 1].r;
-                    item.g = arr[i - 1].g;
-                    item.b = arr[i - 1].b;
-                    item.a = 0;
-                    item.percent = undefined;
-                    break;
-                case '2':
-                    item.r = arr[i + 1].r;
-                    item.g = arr[i + 1].g;
-                    item.b = arr[i + 1].b;
-                    item.a = 0;
-                    item.percent = undefined;
-                    break;
-                default:
-                    break;
+            if (item.g === '1') {
+                item.r = arr[i - 1].r;
+                item.g = arr[i - 1].g;
+                item.b = arr[i - 1].b;
+            } else {
+                item.r = arr[i + 1].r;
+                item.g = arr[i + 1].g;
+                item.b = arr[i + 1].b;
             }
         }
     });
@@ -157,33 +150,39 @@ var createColorModel = exports.createColorModel = function createColorModel(decl
             color.a = 1;
             color.percent = getPercent(pos + 1, array);
 
-            if (color.percent === undefined && colorModel.length === 0) color.percent = 0;
+            if (color.percent === undefined && colorModel.length === 0) {
+                color.percent = 0;
+            }
 
             colorModel.push(color);
         } else {
             if (array[pos] && !array[pos].match(/\d+/)) {
                 // Если цвет rgbs
                 if (array[pos] === 'rgba') {
-                    color = { 'r': '', 'g': '', 'b': '', 'a': '', 'percent': '' };
+                    color = { 'r': '', 'g': '', 'b': '', 'a': 0, 'percent': undefined };
                     color.r = +array[pos + 1];
                     color.g = +array[pos + 2];
                     color.b = +array[pos + 3];
                     color.a = +array[pos + 4];
                     color.percent = getPercent(pos + 5, array);
 
-                    if (color.percent === undefined && colorModel.length === 0) color.percent = 0;
+                    if (color.percent === undefined && colorModel.length === 0) {
+                        color.percent = 0;
+                    }
 
                     colorModel.push(color);
                 } else if (array[pos] === 'rgb') {
                     // Если цвет rgb
-                    color = { 'r': '', 'g': '', 'b': '', 'a': '', 'percent': '' };
+                    color = { 'r': '', 'g': '', 'b': '', 'a': 0, 'percent': undefined };
                     color.r = +array[pos + 1];
                     color.g = +array[pos + 2];
                     color.b = +array[pos + 3];
                     color.a = 1;
                     color.percent = getPercent(pos + 4, array);
 
-                    if (color.percent === undefined && colorModel.length === 0) color.percent = 0;
+                    if (color.percent === undefined && colorModel.length === 0) {
+                        color.percent = 0;
+                    }
 
                     colorModel.push(color);
                 } else {
@@ -191,8 +190,8 @@ var createColorModel = exports.createColorModel = function createColorModel(decl
 
                     if (array[pos] === 'transparent') {
                         // Если это transparent
-                        var color1 = { 'r': 'transparent', 'g': '1', 'b': '', 'a': '', 'percent': '' };
-                        var color2 = { 'r': 'transparent', 'g': '2', 'b': '', 'a': '', 'percent': '' };
+                        var color1 = { 'r': 'transparent', 'g': '1', 'b': '', 'a': 0, 'percent': undefined };
+                        var color2 = { 'r': 'transparent', 'g': '2', 'b': '', 'a': 0, 'percent': undefined };
 
                         colorModel.push(color1);
                         colorModel.push(color2);
@@ -206,7 +205,7 @@ var createColorModel = exports.createColorModel = function createColorModel(decl
                     colorTable.map(function (item) {
 
                         //if (item[array[pos]]) { // Если цвет из таблицы цветов
-                        color = { 'r': '', 'g': '', 'b': '', 'a': '', 'percent': '' };
+                        color = { 'r': '', 'g': '', 'b': '', 'a': 0, 'percent': undefined };
                         rgb = hexToRgb(item.hex.toUpperCase());
                         color.r = +rgb.r;
                         color.g = +rgb.g;
@@ -214,7 +213,9 @@ var createColorModel = exports.createColorModel = function createColorModel(decl
                         color.a = 1;
                         color.percent = getPercent(pos + 1, array);
 
-                        if (color.percent === undefined && colorModel.length === 0) color.percent = 0;
+                        if (color.percent === undefined && colorModel.length === 0) {
+                            color.percent = 0;
+                        }
 
                         colorModel.push(color);
                         //};
@@ -243,7 +244,8 @@ var getTwoMaxColors = exports.getTwoMaxColors = function getTwoMaxColors(colorMo
             max = interval;
             maxPos = pos - 1;
         }
-    };
+    }
+    ;
 
     twoMainColor[0] = colorModel[maxPos];
     twoMainColor[1] = colorModel[maxPos + 1];
