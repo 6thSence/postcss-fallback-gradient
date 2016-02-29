@@ -73,7 +73,6 @@ var getPercent = exports.getPercent = function getPercent(pos, array) {
 };
 
 var checkOfTransparent = exports.checkOfTransparent = function checkOfTransparent(colorModel) {
-
     colorModel.map(function (item, i, arr) {
         if (item.r === 'transparent') {
             if (item.g === '1') {
@@ -92,38 +91,30 @@ var checkOfTransparent = exports.checkOfTransparent = function checkOfTransparen
 };
 
 var checkOfPercent = exports.checkOfPercent = function checkOfPercent(colorModel) {
-
     var und = 0; // колличество undefinde
     var min = 0; // значение до undefinde
     var max = 0; // значение после undefinde
-    var coef = 0; // разница между undefinde елементами
+    var coef = 0; // разница между max и min
     var val = 0; // значение присваемое елементу
-    var pos = -1; // позиция map-a
 
-    colorModel.map(function (item) {
-        pos = pos + 1;
-
+    colorModel.map(function (item, i) {
         if (item.percent === undefined) {
-
             und = und + 1;
         } else if (und > 0) {
-
             min = max;
             max = item.percent;
             coef = (max + min) / (und + 1);
             val = max - coef;
 
             while (und > 0) {
-                colorModel[pos - und].percent = val;
+                colorModel[i - und].percent = val;
                 val = val - coef;
-                und = und - 1;
+                und--;
             }
 
             min = max;
-            max = 0;
-            und = 0;
+            max = und = 0;
         } else if (item.percent > max) {
-
             max = item.percent;
         }
     });
