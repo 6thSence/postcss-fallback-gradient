@@ -97,7 +97,7 @@ var checkOfPercent = exports.checkOfPercent = function checkOfPercent(colorModel
     var coef = 0; // разница между max и min
     var val = 0; // значение присваемое елементу
 
-    colorModel.map(function (item, i) {
+    colorModel.map(function (item, i, arr) {
         if (item.percent === undefined) {
             und = und + 1;
         } else if (und > 0) {
@@ -107,7 +107,7 @@ var checkOfPercent = exports.checkOfPercent = function checkOfPercent(colorModel
             val = max - coef;
 
             while (und > 0) {
-                colorModel[i - und].percent = val;
+                arr[i - und].percent = val;
                 val = val - coef;
                 und--;
             }
