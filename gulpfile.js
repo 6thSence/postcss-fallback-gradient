@@ -4,9 +4,9 @@ const eslint = require('gulp-eslint');
 const mocha = require('gulp-mocha');
 const rename = require('gulp-rename');
 
-gulp.task('default', ['lint', 'babel']);
+gulp.task('default', ['build']);
 
-gulp.task('babel', () => {
+gulp.task('build', () => {
     gulp.src('lib/*.js')
         .pipe(babel({
             presets: ['es2015']

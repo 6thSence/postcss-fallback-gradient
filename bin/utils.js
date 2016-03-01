@@ -1,10 +1,9 @@
 'use strict';
 
-var _arguments = arguments;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var postcss = require('postcss');
+exports.compose = compose;
 var colorTable = exports.colorTable = require('./crayola.json');
 var sortByPercent = exports.sortByPercent = function sortByPercent(colorModel) {
     return colorModel.sort(function (a, b) {
@@ -115,7 +114,7 @@ var checkOfPercent = exports.checkOfPercent = function checkOfPercent(colorModel
 
     return colorModel;
 };
-var createColorModel = exports.createColorModel = function createColorModel(decl, firstRull) {
+var createColorModel = exports.createColorModel = function createColorModel(decl) {
     var val = decl.value.slice(decl.value.indexOf(',') + 1, decl.value.length - 1); // значение свойства в скобках
     var arrayFromStr = srtToArray(val);
     var colorModel = [];
@@ -192,9 +191,9 @@ var getMiddleColor = exports.getMiddleColor = function getMiddleColor(twoColor) 
 
     return { r: r, g: g, b: b, a: a };
 };
-var compose = exports.compose = function compose() {
-    for (var _len = _arguments.length, funcs = Array(_len), _key = 0; _key < _len; _key++) {
-        funcs[_key] = _arguments[_key];
+function compose() {
+    for (var _len = arguments.length, funcs = Array(_len), _key = 0; _key < _len; _key++) {
+        funcs[_key] = arguments[_key];
     }
 
     return function (arg) {

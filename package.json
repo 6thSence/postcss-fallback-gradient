@@ -30,15 +30,15 @@
     "postcss": "^5.0.8"
   },
   "devDependencies": {
+    "ava": "^0.12.0",
     "babel-preset-es2015": "^6.5.0",
+    "babel-register": "^6.6.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
-    "gulp-mocha": "^2.1.3",
-    "gulp-eslint": "1.0.0",
-    "mocha": "2.2.5"
+    "gulp-eslint": "1.0.0"
   },
   "scripts": {
-    "test": "gulp mocha",
+    "test": "ava ./test/*.test.js",
     "install": "gulp"
   }
 }

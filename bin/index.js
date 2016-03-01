@@ -2,6 +2,9 @@
 
 var _utils = require('./utils');
 
+var postcss = require('postcss');
+
+
 module.exports = postcss.plugin('myplug', function myplug(options) {
     return function (css) {
         options = options || {};
@@ -15,7 +18,7 @@ module.exports = postcss.plugin('myplug', function myplug(options) {
 
                 if (decl.value.indexOf('gradient') !== -1) {
                     if (firstRull) {
-                        var middleColor = (0, _utils.compose)(_utils.getMiddleColor, _utils.getTwoMaxColors, _utils.sortByPercent, _utils.checkOfPercent, _utils.sortByPercent, _utils.checkOfTransparent, _utils.createColorModel)(decl, firstRull);
+                        var middleColor = (0, _utils.compose)(_utils.getMiddleColor, _utils.getTwoMaxColors, _utils.sortByPercent, _utils.checkOfPercent, _utils.sortByPercent, _utils.checkOfTransparent, _utils.createColorModel)(decl);
 
                         colorRgba = 'rgba(' + middleColor.r + ', ' + middleColor.g + ', ' + middleColor.b + ', ' + middleColor.a + ')';
                         colorHex = (0, _utils.rbgToHex)(middleColor); // получаем hex цвет из rgba
