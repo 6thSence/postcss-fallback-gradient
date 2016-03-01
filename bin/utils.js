@@ -1,8 +1,10 @@
 'use strict';
 
+var _arguments = arguments;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var postcss = require('postcss');
 var colorTable = exports.colorTable = require('./crayola.json');
 var sortByPercent = exports.sortByPercent = function sortByPercent(colorModel) {
     return colorModel.sort(function (a, b) {
@@ -12,7 +14,7 @@ var sortByPercent = exports.sortByPercent = function sortByPercent(colorModel) {
 var hexToRgb = exports.hexToRgb = function hexToRgb(hex) {
     if (hex.length === 4) {
         hex = '#' + (hex[1].repeat(2) + hex[2].repeat(2) + hex[3].repeat(2));
-    };
+    }
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
 
     return result ? {
@@ -27,13 +29,13 @@ var rbgToHex = exports.rbgToHex = function rbgToHex(rgbColor) {
     var b = (+rgbColor.b).toString(16);
     if (r.length == 1) {
         r = '0' + r;
-    };
+    }
     if (g.length == 1) {
         g = '0' + g;
-    };
+    }
     if (b.length == 1) {
         b = '0' + b;
-    };
+    }
 
     return '#' + (r + g + b);
 };
@@ -160,7 +162,9 @@ var createColorModel = exports.createColorModel = function createColorModel(decl
                 }
             }
         }
-        if (color.r !== '') colorModel.push(color);;
+        if (color.r !== '') {
+            colorModel.push(color);
+        }
     });
     return colorModel;
 };
@@ -189,8 +193,8 @@ var getMiddleColor = exports.getMiddleColor = function getMiddleColor(twoColor) 
     return { r: r, g: g, b: b, a: a };
 };
 var compose = exports.compose = function compose() {
-    for (var _len = arguments.length, funcs = Array(_len), _key = 0; _key < _len; _key++) {
-        funcs[_key] = arguments[_key];
+    for (var _len = _arguments.length, funcs = Array(_len), _key = 0; _key < _len; _key++) {
+        funcs[_key] = _arguments[_key];
     }
 
     return function (arg) {

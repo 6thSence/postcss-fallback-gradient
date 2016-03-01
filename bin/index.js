@@ -2,9 +2,6 @@
 
 var _utils = require('./utils');
 
-var postcss = require('postcss');
-
-
 module.exports = postcss.plugin('myplug', function myplug(options) {
     return function (css) {
         options = options || {};
