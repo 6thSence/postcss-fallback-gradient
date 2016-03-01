@@ -54,5 +54,5 @@ Use it! Enjoy it!
 2. `npm init`
 3. `npm i --save postcss`
 4. add `"postcss-fallback-gradient": "git://github.com/6thSence/postcss-fallback-gradient.git"` into your package.json
-5. npm i
+5. `npm i`
 6. Use it how any other postcss plugins
