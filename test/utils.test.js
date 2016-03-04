@@ -60,3 +60,19 @@ test('sort by percent', t => {
 
     t.same(sortByPercent(colorModel), result);
 });
+test('check of percent', t => {
+    const colorModel =[
+        { r: 114, g: 114, b: 144, percent: 0 },
+        { r: 'transparent', g: '1', b: 0, percent: undefined },
+        { r: 'transparent', g: '2', b: 0, percent: undefined },
+        { r: 50, g: 56, b: 77, percent: 56 }
+    ];
+    const result =[
+        { r: 114, g: 114, b: 144, percent: 0 },
+        { r: 'transparent', g: '1', b: 0, percent: 19 },
+        { r: 'transparent', g: '2', b: 0, percent: 38 },
+        { r: 50, g: 56, b: 77, percent: 56 }
+    ];
+
+    t.same(checkOfPercent(colorModel), result);
+});

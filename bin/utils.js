@@ -96,12 +96,12 @@ var checkOfPercent = exports.checkOfPercent = function checkOfPercent(colorModel
         } else if (undefinedColl > 0) {
             min = max;
             max = item.percent;
-            factor = (max + min) / (undefinedColl + 1);
-            percent = max - factor;
+            factor = Math.round((max + min) / (undefinedColl + 1));
+            percent = factor;
 
             while (undefinedColl > 0) {
                 arr[i - undefinedColl].percent = percent;
-                percent -= factor;
+                percent += factor;
                 undefinedColl--;
             }
 
