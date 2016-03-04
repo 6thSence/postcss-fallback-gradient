@@ -60,6 +60,20 @@ test('sort by percent', t => {
 
     t.same(sortByPercent(colorModel), result);
 });
+test('get two max color', t => {
+    const colorModel =[
+        { r: 50, g: 56, b: 77, percent: 5 },
+        { r: 'transparent', g: '1', b: 0, percent: 50 },
+        { r: 114, g: 114, b: 144, percent: 56 },
+        { r: 'transparent', g: '2', b: 0, percent: 100 }
+    ];
+    const result =[
+        { r: 50, g: 56, b: 77, percent: 5 },
+        { r: 'transparent', g: '1', b: 0, percent: 50 }
+    ];
+
+    t.same(getTwoMaxColors(colorModel), result);
+});
 test('check of percent', t => {
     const colorModel =[
         { r: 114, g: 114, b: 144, percent: 0 },
