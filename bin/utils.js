@@ -114,8 +114,7 @@ var checkOfPercent = exports.checkOfPercent = function checkOfPercent(colorModel
 
     return colorModel;
 };
-var createColorModel = exports.createColorModel = function createColorModel(decl) {
-    var val = decl.value.slice(decl.value.indexOf(',') + 1, decl.value.length - 1); // значение свойства в скобках
+var createColorModel = exports.createColorModel = function createColorModel(val) {
     var arrayFromStr = srtToArray(val);
     var colorModel = [];
 

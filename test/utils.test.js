@@ -1,12 +1,14 @@
 import test from 'ava';
 
-import { checkOfTransparent,
+import { createColorModel,
+    checkOfTransparent,
     sortByPercent,
     checkOfPercent,
     getTwoMaxColors,
     getMiddleColor,
     rbgToHex,
-    compose } from '../bin/utils';
+    compose,
+    getPercent } from '../bin/utils';
 
 test('rbgToHex', t => {
     t.is(rbgToHex({ r: 255, g: 0, b: 0}), '#ff0000');
@@ -90,3 +92,32 @@ test('check of percent', t => {
 
     t.same(checkOfPercent(colorModel), result);
 });
+test('get percent', t => {
+    const colorModel =[
+        { r: 114, g: 114, b: 144, percent: 0 },
+        { r: 'transparent', g: '1', b: 0, percent: undefined },
+        { r: 'transparent', g: '2', b: 0, percent: undefined },
+        { r: 50, g: 56, b: 77, percent: 56 }
+    ];
+    const result =[
+        { r: 114, g: 114, b: 144, percent: 0 },
+        { r: 'transparent', g: '1', b: 0, percent: 19 },
+        { r: 'transparent', g: '2', b: 0, percent: 38 },
+        { r: 50, g: 56, b: 77, percent: 56 }
+    ];
+
+    t.same(getPercent(colorModel), result);
+});
+//test('create color model', t => {
+//    const val ='rgb(145, 23, 23), #f00 10%, transparent, red, rgba(0,255,127,.3) 50%, rgba(0, 127, 128, 0.8)';
+//    const result =[
+//        { r: 145, g: 23, b: 23, a: 1, percent: 0 },
+//        { r: 255, g: 0, b: 0, a: 1, percent: 10 },
+//        { r: 'transparent', g: '1', b: 0, a: 1, percent: undefined },
+//        { r: 'transparent', g: '2', b: 0, a: 1, percent: undefined },
+//        { r: 255, g: 0, b: 0, a: .3, percent: 50 },
+//        { r: 0, g: 127, b: 128, a: .8, percent: 100 }
+//    ];
+//
+//    t.same(createColorModel(val)[1], result[1]);
+//});

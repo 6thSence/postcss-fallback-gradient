@@ -38,7 +38,6 @@
     "gulp-eslint": "1.0.0"
   },
   "scripts": {
-    "test": "ava ./test/*.test.js",
-    "install": "gulp"
+    "test": "ava ./test/*.test.js"
   }
 }
